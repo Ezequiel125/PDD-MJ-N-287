@@ -1,0 +1,14 @@
+{
+   "pais1": {
+      "pais": "Argentina",
+      "casos conf": 4298782,
+      "fallecidos": 90281,
+      "recuperados": 3928389
+   },
+   "pais2": {
+      "pais": "Germany",
+      "casos conf": 3731304,
+      "fallecidos": 90505,
+      "recuperados": 3606310
+   }
+}

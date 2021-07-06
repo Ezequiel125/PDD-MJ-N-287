@@ -1,0 +1,45 @@
+{
+   "amo": {
+      "nombre": "Robert",
+      "tiro": "Humano",
+      "le_gusta": [
+         "Una buena conver",
+         "Animales",
+         "Futbol"
+      ],
+      "edad": 45,
+      "mascota": [
+         {
+            "nombre": "nemo",
+            "tipo": "pez",
+            "raza": "payaso",
+            "edad": 1,
+            "le_gusta": [
+               "comer",
+               "madar"
+            ]
+         },
+         {
+            "nombre": "Cuqui",
+            "tipo": "gato",
+            "raza": "siames",
+            "edad": 6,
+            "le_gusta": [
+               "comer",
+               "dormir"
+            ]
+         },
+         {
+            "nombre": "Rocco",
+            "tipo": "perro",
+            "raza": "Labrador",
+            "edad": 5,
+            "le_gusta": [
+               "comer",
+               "correr a las palomas",
+               "ladrar de noche"
+            ]
+         }
+      ]
+   }
+}
