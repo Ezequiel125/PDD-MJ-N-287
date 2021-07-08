@@ -17,5 +17,9 @@ def twitterUsers():
     response = app.response_class(response = json.dumps(users),status = 200, mimetype = 'application/json')
     return response
     
+@app.route("/users/<path>")
+def searchUsers(path):
+    return "Usted quiere buscar:" + path
+
     
 app.run(port = 3030, host = '0.0.0.0')
