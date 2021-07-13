@@ -18,7 +18,7 @@ api = tweepy.API(auth)
 cliente = MongoClient('mongodb://localhost:27017')
 bd = cliente['bigdata']
 coleccion = bd['tweets']
-ultimo = coleccion.find_one(sort=list({'id': 1}))
+ultimo = coleccion.find_one(sort=list({'id': 1}.items()))
 
 if ultimo != None: ultimo_tweet = ultimo['id']
 else: ultimo_tweet = None
