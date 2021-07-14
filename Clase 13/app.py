@@ -9,7 +9,7 @@ USER = environ['DB_USER']
 PASS = environ['DB_PASSWORD']
 HOST = environ['DB_HOST']
 NAME = environ['DB_NAME']
-
+PORT = environ['PORT']
 app = Flask(__name__)
 
 
@@ -68,13 +68,11 @@ def searchUsers(path):
     result = []
     
     for user in users:
-        
-        '''
         item = {
             'usuario' : user['name']
             }
-        '''
-    result.append(user)
+        
+        result.append(item)
     
     response = app.response_class(response = json.dumps(result),status = 200, mimetype = 'application/json')
     
@@ -92,5 +90,33 @@ def test():
      
     
     return 'Mira la consola...'
+
+@app.route("/tweets/<user>/<limit>")
+def filterUsers(user,limit):
+    data = db['PDD-MJ-N-287']
+    twitter = data['twitter']
     
-app.run(port = 3030, host = '0.0.0.0')
+    if limit != None and limit.isnumeric():
+        limit = int(limit)
+    else:
+        response = {
+             'ok' : False,
+             'msg': "ERROR: No puede realizarse la busqueda :"
+            }
+        return app.response_class(response = json.dumps(response), status = 404, mimetype = 'application/json' )
+        
+    tweets = twitter.find({"in_reply_to_screen_name" : user}).limit(limit)
+    
+    response=[]
+    
+    for tweet in tweets:
+        item = {
+             'id' :tweet['id_str'],
+             'user' : tweet['in_reply_to_screen_name'],
+             'tweet' : tweet['full_text'] 
+            }
+        response.append(item)                 
+    return app.response_class(response = json.dumps(response), status = 200, mimetype = 'application/json' )
+
+    
+app.run(port = PORT, host = '0.0.0.0')
