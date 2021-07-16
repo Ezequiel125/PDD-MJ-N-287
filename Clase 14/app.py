@@ -10,7 +10,7 @@ PASS = environ["DB_PASSWORD"]
 HOST = environ["DB_HOST"]
 BASE = environ["DB_NAME"]
 PORT = environ["PORT"]
-FLASK_ENV = environ['development']
+FLASK_ENV = environ['FLASK_ENV']
 app = Flask(__name__)
 
 ###### MongoDB ######
